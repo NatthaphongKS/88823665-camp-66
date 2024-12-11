@@ -1,58 +1,164 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แบบฟอร์มข้อมูลส่วนตัว</title>
+    <title>Workshop #HTML - FORM</title>
+    <style>
+        /* Internal CSS */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #483d8b, #6a5acd, #8470ff);
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: red;
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 20px;
+            width: 500px;
+            max-height: 70vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        form div {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], 
+        input[type="date"], 
+        input[type="number"], 
+        select, 
+        textarea {
+            width: calc(100% - 110px);
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #6a5acd;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #483d8b;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        input[type="radio"], 
+        input[type="checkbox"] {
+            margin-left: 5px;
+        }
+
+        label[for="consent"] {
+            display: inline;
+        }
+
+        .inline-options {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .inline-options label {
+            width: auto;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>แบบฟอร์มข้อมูลส่วนตัว</h1>
-    <form action="/submit" method="POST" enctype="multipart/form-data">
-        <label for="name">ชื่อ:</label><br>
-        <input type="text" id="name" name="name"><br><br>
-
-        <label for="surname">สกุล:</label><br>
-        <input type="text" id="surname" name="surname"><br><br>
-
-        <label for="dob">วัน/เดือน/ปีเกิด:</label><br>
-        <input type="date" id="dob" name="dob"><br><br>
-
-        <label for="age">อายุ:</label><br>
-        <input type="number" id="age" name="age" min="1"><br><br>
-
-        <label>เพศ:</label><br>
-        <input type="radio" id="male" name="gender" value="ชาย">
-        <label for="male">ชาย</label><br>
-        <input type="radio" id="female" name="gender" value="หญิง">
-        <label for="female">หญิง</label><br><br>
-
-        <label for="photo">รูป:</label><br>
-        <input type="file" id="photo" name="photo"><br><br>
-
-        <label for="address">ที่อยู่:</label><br>
-        <textarea id="address" name="address" rows="4" cols="50"></textarea><br><br>
-
-        <label for="favorite-color">สีที่ชอบ:</label><br>
-        <select id="favorite-color" name="favorite_color">
-            <option value="แดง">สีแดง</option>
-            <option value="น้ำเงิน">สีน้ำเงิน</option>
-            <option value="เขียว">สีเขียว</option>
-            <option value="เหลือง">สีเหลือง</option>
-        </select><br><br>
-
-        <label>แนวเพลงที่ชอบ:</label><br>
-        <input type="radio" id="lifesong" name="music_genre" value="เพื่อชีวิต">
-        <label for="lifesong">เพื่อชีวิต</label><br>
-        <input type="radio" id="lukthung" name="music_genre" value="ลูกทุ่ง">
-        <label for="lukthung">ลูกทุ่ง</label><br>
-        <input type="radio" id="others" name="music_genre" value="อื่นๆ">
-        <label for="others">อื่นๆ</label><br><br>
-
-        <input type="checkbox" id="consent" name="consent" value="agree">
-        <label for="consent">ยินยอมให้เก็บข้อมูล</label><br><br>
-
-        <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
+    <form action="/submit" method="POST" enctype="multipart/form-data"> 
+        <h1>Workshop #HTML - FORM</h1>
+        <div>
+            <label for="name">ชื่อ</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="surname">สกุล</label>
+            <input type="text" id="surname" name="surname">
+        </div>
+        <div>
+            <label for="dob">วัน/เดือน/ปีเกิด</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+        <div>
+            <label for="age">อายุ:</label>
+            <input type="number" id="age" name="age" min="1">
+        </div>
+        <div class="inline-options">
+            <label>เพศ:</label>
+            <input type="radio" id="male" name="gender" value="ชาย">
+            <label for="male">ชาย</label>
+            <input type="radio" id="female" name="gender" value="หญิง">
+            <label for="female">หญิง</label>
+        </div>
+        <div>
+            <label for="photo">รูป:</label>
+            <input type="file" id="photo" name="photo">
+        </div>
+        <div>
+            <label for="address">ที่อยู่:</label>
+            <textarea id="address" name="address" rows="4"></textarea>
+        </div>
+        <div>
+            <label for="favorite-color">สีที่ชอบ:</label>
+            <select id="favorite-color" name="favorite_color">
+                <option value="แดง">สีแดง</option>
+                <option value="น้ำเงิน">สีน้ำเงิน</option>
+                <option value="เขียว">สีเขียว</option>
+                <option value="เหลือง">สีเหลือง</option>
+            </select>
+        </div>
+        <div class="inline-options">
+            <label>แนวเพลงที่ชอบ:</label>
+            <input type="radio" id="lifesong" name="music_genre" value="เพื่อชีวิต">
+            <label for="lifesong">เพื่อชีวิต</label>
+            <input type="radio" id="lukthung" name="music_genre" value="ลูกทุ่ง">
+            <label for="lukthung">ลูกทุ่ง</label>
+            <input type="radio" id="others" name="music_genre" value="อื่นๆ">
+            <label for="others">อื่นๆ</label>
+        </div>
+        <div>
+            <input type="checkbox" id="consent" name="consent" value="agree">
+            <label for="consent">ยินยอมให้เก็บข้อมูล</label>
+        </div>
+        <div style="text-align: center;">
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </div>
     </form>
 </body>
 </html>
