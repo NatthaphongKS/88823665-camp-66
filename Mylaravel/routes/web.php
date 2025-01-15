@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('myview');
 });
 
-Route::get('/hello', function () {
-    return "<h1> Hello World!</h1>";
-});
+use App\Http\Controllers\MyController;
+
+Route::get('/form', [MyController::class, 'showForm']); // แสดงฟอร์ม
+Route::post('/generate-table', [MyController::class, 'generateTable']); // รับค่าจากฟอร์มและแสดงตาราง
+
+
